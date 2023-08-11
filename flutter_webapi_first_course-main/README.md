@@ -53,3 +53,10 @@ IP e HTTP: Na sequência entendemos um pouco de como funciona a Internet e o que
 
 Interceptadores e Loggers: Por fim, discutimos que, como a biblioteca http não nos dá uma forma interessante de fazermos um diagnóstico em tempo real das requisições e respostas que estão passando pela nossa aplicação, seria importante configurarmos uma. E foi exatamente o que fizemos usando a biblioteca http_interceptor para interceptar todas as requisições e respostas; e a logger para mostrar informações úteis de forma organizada e agradável no console.
 
+Assincronismo: Começamos fazendo uma breve revisão sobre assincronismo no Dart, pois notamos que quando estamos lidando com requisições para Web APIs, essas operações não serão instantâneas, ou seja, levarão um tempo para acontecer, portanto, serão assíncronas.
+
+Tela de Adição de Entradas: Vimos também que era necessário construir uma tela responsável por captar da pessoa usuária as informações que serão enviadas para a Web API.
+
+Método POST: Na sequência, usamos o método POST para enviar as informações captadas para nossa Web API. Para isso, foi necessário converter nosso objeto para um JSON, configurar o cabeçalho para avisarmos que estamos enviando a informação usando esse padrão e verificar se a resposta do servidor indica que a entrada foi criada com sucesso.
+
+SnackBar: Por fim, notamos ser extremamente importante dar um feedback para a pessoa usuária a respeito do sucesso da operação assíncrona. Para isso, usamos um SnackBar que será mostrado na tela quando a resposta do servidor for um 201 Created.
