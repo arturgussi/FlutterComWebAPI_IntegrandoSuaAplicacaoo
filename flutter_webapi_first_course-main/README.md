@@ -60,3 +60,9 @@ Tela de Adição de Entradas: Vimos também que era necessário construir uma te
 Método POST: Na sequência, usamos o método POST para enviar as informações captadas para nossa Web API. Para isso, foi necessário converter nosso objeto para um JSON, configurar o cabeçalho para avisarmos que estamos enviando a informação usando esse padrão e verificar se a resposta do servidor indica que a entrada foi criada com sucesso.
 
 SnackBar: Por fim, notamos ser extremamente importante dar um feedback para a pessoa usuária a respeito do sucesso da operação assíncrona. Para isso, usamos um SnackBar que será mostrado na tela quando a resposta do servidor for um 201 Created.
+
+Buscando da API: Após ter aprendido como adicionar uma nova informação a um recurso usando o POST, era chegada a hora de aprendermos a ler as entradas do recurso. Para isso usamos o método GET para acessar o journals do nosso servidor e assim recebermos uma lista contendo todas as entradas registradas.
+
+Listando na Tela: Com a lista de entradas disponíveis via nossa operação com o GET, faltava apenas conseguirmos mostrar na tela principal. Para isso, convertemos de volta o JSON que chega como resposta para uma lista de Journals, e com essa lista podemos substituir o database aleatório que usávamos por essa informação real recebida via Web API.
+
+Refatorando o código: Por fim, refatoramos nosso código para que ele ficasse bem mais estruturado e legível.
