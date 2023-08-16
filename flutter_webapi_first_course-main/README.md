@@ -72,3 +72,9 @@ Alterando com PUT: Vimos que, uma vez que conseguimos adicionar e ler entradas n
 Removendo com DELETE: Por último, era necessário remover uma entrada. Vimos que, na verdade, essa é uma das operações mais simples para nosso caso. Bastou usar o método DELETE do HTTP, passando o ID da entrada a ser alterada na URL.
 
 Dialog de Confirmação: Por a remoção ser uma operação destrutiva, notamos que seria interessante adicionar uma camada de proteção contra casos acidentais. Para isso criamos um Dialog genérico de confirmação (genérico, pois ele poderá ser usado em outras situações), e apenas quando a pessoa usuária confirmar o desejo de executar essa operação é que removeremos a entrada.
+
+Instalando o JSON Server Auth: Vimos que, da forma que estava, nosso servidor não estava preparado para lidar com autenticação de pessoas usuárias. Para habilitar essa funcionalidade instalamos JSON Server Auth.
+
+Entendendo o Fluxo de Autorização: Conversamos a respeito de que cada API terá especificidades na forma de autenticar e autorizar pessoas usuárias, mas que o sistema que usa Usuário - Senha - Token, ou apenas Autenticação com Token, é muito comum e é o que usaremos com o JSON Server Auth.
+
+Postman: Conhecemos o Postman, uma ferramenta de execução e detalhamento de requisições e respostas. Ela é muito útil para fazermos operações de testes de forma rápida para nossa API, alterando livremente as informações enviadas (como cabeçalhos e corpo) e analisando cuidadosamente a resposta recebida.
