@@ -66,3 +66,9 @@ Buscando da API: Após ter aprendido como adicionar uma nova informação a um r
 Listando na Tela: Com a lista de entradas disponíveis via nossa operação com o GET, faltava apenas conseguirmos mostrar na tela principal. Para isso, convertemos de volta o JSON que chega como resposta para uma lista de Journals, e com essa lista podemos substituir o database aleatório que usávamos por essa informação real recebida via Web API.
 
 Refatorando o código: Por fim, refatoramos nosso código para que ele ficasse bem mais estruturado e legível.
+
+Alterando com PUT: Vimos que, uma vez que conseguimos adicionar e ler entradas no nosso recurso via HTTP, o próximo passo natural é permitir que as pessoas usuárias consigam alterar essas entradas. Para isso, usamos o método PUT no HTTP, passando o ID da entrada a ser alterada na URL e todo o corpo do objeto Journal como JSON no body da requisição.
+
+Removendo com DELETE: Por último, era necessário remover uma entrada. Vimos que, na verdade, essa é uma das operações mais simples para nosso caso. Bastou usar o método DELETE do HTTP, passando o ID da entrada a ser alterada na URL.
+
+Dialog de Confirmação: Por a remoção ser uma operação destrutiva, notamos que seria interessante adicionar uma camada de proteção contra casos acidentais. Para isso criamos um Dialog genérico de confirmação (genérico, pois ele poderá ser usado em outras situações), e apenas quando a pessoa usuária confirmar o desejo de executar essa operação é que removeremos a entrada.
