@@ -78,3 +78,9 @@ Instalando o JSON Server Auth: Vimos que, da forma que estava, nosso servidor n�
 Entendendo o Fluxo de Autorização: Conversamos a respeito de que cada API terá especificidades na forma de autenticar e autorizar pessoas usuárias, mas que o sistema que usa Usuário - Senha - Token, ou apenas Autenticação com Token, é muito comum e é o que usaremos com o JSON Server Auth.
 
 Postman: Conhecemos o Postman, uma ferramenta de execução e detalhamento de requisições e respostas. Ela é muito útil para fazermos operações de testes de forma rápida para nossa API, alterando livremente as informações enviadas (como cabeçalhos e corpo) e analisando cuidadosamente a resposta recebida.
+
+Conheça o SharedPreferences: Existem 3 formas de manipular dados de forma persistente no Flutter: Com I/O para editar arquivos; com SQFlite com o uso de um banco de dados; e com o SharedPreferences, onde podemos salvar pequenos dados estruturados com chave e valor;
+
+Instale o Shared Preferences: Para isso funcionar, você precisa instalar a dependência adicionando shared_preferences: ^2.0.15 no pubspec.yaml, e rodar o comando flutter pub get no terminal;
+
+Salve as informações no Service: Agora, basta criar um método no AuthService para salvar as informações de ID e Token que chegam das requisições de Login e Register!

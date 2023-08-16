@@ -4,6 +4,16 @@
       "email": "aaa@bc.d",
       "password": "$2a$10$/HeYfcaQ1Dphea845cTMb.f.P/ZKwbO9VY5Bm8gcKl0VTP8e5Ccze",
       "id": 1
+    },
+    {
+      "email": "artur@gmail.com",
+      "password": "$2a$10$cLkj.GGv0jHVSE9hbQflNOjSQXPiSR7QwpinHOCnVP0sJyFr5lSnm",
+      "id": 2
+    },
+    {
+      "email": "outro@gmail.com",
+      "password": "$2a$10$jC/fp9h/QPcNbSZ9FHrRqeyThQ5LMhGWhSbUIyDHU4vg0okbNIUZC",
+      "id": 3
     }
   ],
   "learnhttp": {},
