@@ -84,3 +84,12 @@ Conheça o SharedPreferences: Existem 3 formas de manipular dados de forma persi
 Instale o Shared Preferences: Para isso funcionar, você precisa instalar a dependência adicionando shared_preferences: ^2.0.15 no pubspec.yaml, e rodar o comando flutter pub get no terminal;
 
 Salve as informações no Service: Agora, basta criar um método no AuthService para salvar as informações de ID e Token que chegam das requisições de Login e Register!
+
+Importando Tela de Login: Vimos que nem sempre precisaremos criar uma ferramenta do zero, muitas vezes parte do código que nós vamos usar já está pronta e basta importá-la para o nosso código. Foi exatamente esse o caso da nossa Tela de Login, recebemos o código em Dart pronto e apenas precisamos importá-lo para nosso diretório de arquivos e fazer pequenas configurações.
+
+Fazendo Login via API: Logo na sequência precisávamos enviar as informações de e-mail e senha para a API, para que assim o servidor pudesse tentar efetuar a autenticação com essas informações. Para isso, capturamos esses dados na tela que importamos e criamos um Service (serviço) chamado auth_service. Fizemos isso para separar as requisições referentes a Journal das referentes a autenticação. Depois foi só enviar as informações de e-mail e senha via POST, e receber a resposta do servidor.
+
+Cadastrando via API: Notamos que, para não precisarmos criar uma tela para cadastro, poderíamos sugerir o cadastro de uma nova pessoa usuária caso o e-mail passado no 
+Login fosse inválido. Para fazer esse teste, verificamos o Status Code da resposta do login e, em caso de falha, verificamos se o corpo da resposta continha o texto que vimos ser a mensagem de erro para casos onde o servidor não achou o e-mail passado na requisição na sua base de dados. Nesses casos, abrimos um Dialog de confirmação sugerindo a pessoa usuária a criar uma nova conta com esse e-mail e senha.
+
+Salvando Localmente: Por fim, sabemos que logo adiante vamos usar a informação do Token e do ID do usuário para fazer nossas requisições autenticadas. Por isso, já fizemos o trabalho de salvar de forma persistente, usando o Shared Preferences, essas informações na memória do dispositivo.
