@@ -93,3 +93,16 @@ Cadastrando via API: Notamos que, para não precisarmos criar uma tela para cada
 Login fosse inválido. Para fazer esse teste, verificamos o Status Code da resposta do login e, em caso de falha, verificamos se o corpo da resposta continha o texto que vimos ser a mensagem de erro para casos onde o servidor não achou o e-mail passado na requisição na sua base de dados. Nesses casos, abrimos um Dialog de confirmação sugerindo a pessoa usuária a criar uma nova conta com esse e-mail e senha.
 
 Salvando Localmente: Por fim, sabemos que logo adiante vamos usar a informação do Token e do ID do usuário para fazer nossas requisições autenticadas. Por isso, já fizemos o trabalho de salvar de forma persistente, usando o Shared Preferences, essas informações na memória do dispositivo.
+
+
+Authorization: Contém as credenciais para autenticar um User-Agent com o servidor;
+Last-Modified: Última data de modificação de um recurso, usado para comparar várias versões de um mesmo recurso;
+Keep-Alive: Controla por quanto tempo uma conexão persistente deve permanecer aberta;
+Accept: Informa ao servidor sobre os tipos de dados que podem ser enviados de volta. Isto é MIME-type;
+Content-Type: Indica o tipo de mídia do recurso.
+
+Redirecionamento na Tela Inicial: Percebemos que, caso a pessoa usuária já tenha logado uma vez, ela já possuirá o token de autenticação, então não faz sentido mandá-la para tela de login novamente. Para resolver isso fizemos uma verificação se o token é nulo já na nossa main, caso seja, fazemos nossa initialRoute direcionar para login. Caso o token seja diferente de nulo, nossa initialRoute recebe o valor home.
+
+Cabeçalho de Autenticação: Aprendemos que precisamos autenticar nossas operações já construídas de GET, POST, PUT e DELETE. Para isso, entendemos no Postman como funciona adicionar um cabeçalho de autenticação com Token em uma requisição HTTP, e obtivemos e adicionamos essa informação em todas as operações em JournalService.
+
+Deslogando o Usuário: Por fim, aprendemos que é necessário dar a opção para a pessoa usuária deslogar da sua conta. Para isso, criamos um Drawer com um botão de sair. Ao ser clicado, esse botão limpa as informações guardadas no Shared Preferences e chama a Tela de Login.

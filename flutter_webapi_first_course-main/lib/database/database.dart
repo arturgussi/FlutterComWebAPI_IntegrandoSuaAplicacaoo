@@ -22,11 +22,11 @@ Map<String, Journal> generateRandomDatabase({
     String id = const Uuid().v1();
 
     map[id] = Journal(
-      id: id,
-      content: getRandomPhrase(),
-      createdAt: date,
-      updatedAt: date,
-    );
+        id: id,
+        content: getRandomPhrase(),
+        createdAt: date,
+        updatedAt: date,
+        userId: 0);
   }
   return map;
 }

@@ -16,10 +16,14 @@ class JournalService {
     return "$url$resource";
   }
 
-  Future<bool> register(Journal journal) async {
+  Future<bool> register(Journal journal, String token) async {
     String jsonJournal = json.encode(journal.toMap());
     http.Response response = await client.post(Uri.parse(getUrl()),
-        headers: {'Content-type': 'application/json'}, body: jsonJournal);
+        headers: {
+          'Content-type': 'application/json',
+          'Authorization': "Bearer $token"
+        },
+        body: jsonJournal);
 
     if (response.statusCode == 201) {
       return true;
@@ -27,8 +31,12 @@ class JournalService {
     return false;
   }
 
-  Future<List<Journal>> getAll() async {
-    http.Response response = await client.get(Uri.parse(getUrl()));
+  Future<List<Journal>> getAll(
+      {required String id, required String token}) async {
+    http.Response response = await client.get(
+      Uri.parse("${url}users/$id/journals"),
+      headers: {'Authorization': "Bearer $token"},
+    );
 
     if (response.statusCode != 200) {
       throw Exception();
@@ -45,12 +53,15 @@ class JournalService {
     return list;
   }
 
-  Future<bool> edit(String id, Journal journal) async {
+  Future<bool> edit(String id, Journal journal, String token) async {
     String jsonJournal = json.encode(journal.toMap());
 
     http.Response response = await client.put(
       Uri.parse("${getUrl()}$id"),
-      headers: {'Content-type': 'application/json'},
+      headers: {
+        'Content-type': 'application/json',
+        'Authorization': "Bearer $token"
+      },
       body: jsonJournal,
     );
 
@@ -60,8 +71,11 @@ class JournalService {
     return false;
   }
 
-  Future<bool> delete(String id) async {
-    http.Response response = await http.delete(Uri.parse("${getUrl()}$id"));
+  Future<bool> delete(String id, String token) async {
+    http.Response response = await http.delete(
+      Uri.parse("${getUrl()}$id"),
+      headers: {'Authorization': "Bearer $token"},
+    );
 
     if (response.statusCode == 200) {
       return true;
